@@ -29,15 +29,12 @@ class Wagon {
         }
     }
     shouldQuarantine() {
-        for(let index = 0; index < this.passengers.length; index += 1) {
-            if (this.passengers[index].isHealthy === false) {
-                return true
-            }
-        }
-}
+        const sickly = this.passengers.some(passenger => passenger.isHealthy === false)
+        return sickly // Help from Zachary to get test #8 to pass
+    }
     totalFood() {
         let total = 0
-        for(let index = 0; index < this.passengers.length; index += 1) {
+        for (let index = 0; index < this.passengers.length; index += 1) {
             total += this.passengers[index].food
         }
         return total
